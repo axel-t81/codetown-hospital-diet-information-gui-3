@@ -1,7 +1,10 @@
 ### What's your thinking here with this puzzle?
 # Must pass in standardised diets
 # Return the Kilojoules for each diet
-# Append/Overwrite the returned kJs into the Dictionaries 
+# Append/Overwrite the returned kJs into the Dictionaries
+# 
+# https://www.geeksforgeeks.org/python-passing-dictionary-as-keyword-arguments/
+# https://www.reddit.com/r/Python/comments/jp0x4d/taking_a_dictionary_as_an_argument_is_the_root_of/ 
 
 
 
