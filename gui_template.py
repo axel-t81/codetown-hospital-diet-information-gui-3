@@ -18,14 +18,13 @@ frame.grid(column = 0, row = 0, sticky = (N, W, E, S))
 rows = 8
 columns = 10
 
-#for i in range(rows):
-#    root.rowconfigure(index=i,weight=1)
+for i in range(rows):
+    root.rowconfigure(index=i,weight=1)
 
-#for i in range(columns):
-#    root.columnconfigure(index=i, weight=1)
+for i in range(columns):
+    root.columnconfigure(index=i, weight=1)
 
-Grid.grid_configure(Grid, 9, weight = 1)
-Grid.grid_configure(Grid, 3, weight = 1)
+
 
 
 # Blank cell create
@@ -77,7 +76,13 @@ kidney_button.grid(column = 5, row = 9, sticky = (E, W))
 for child in frame.winfo_children():			
 	child.grid_configure(padx = 3, pady = 3)
 
+
+### THIS WORKS for HORIZONTAL RESIZING, but not VERTICAL resizing
 #for c in sorted(root.children):
 #    root.children[c].pack()
+### This has been the best guide on both resizing you've found:
+# https://www.youtube.com/watch?v=rZxOe1kVF8Q
+### AND other guides are already in your references
+####### !!!!!!! See Assignment 3 forum where Vera points to how to do this
 
 root.mainloop()
