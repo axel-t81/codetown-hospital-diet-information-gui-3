@@ -7,7 +7,7 @@ def nutrition():
      pass
 
 root = Tk()
-# root.geometry('500x200')
+# root.geometry("650x250+400+300")
 
 root.title("Codetown Hospital: Diet Information")
 
@@ -18,11 +18,14 @@ frame.grid(column = 0, row = 0, sticky = (N, W, E, S))
 rows = 8
 columns = 10
 
-for i in range(rows):
-    root.rowconfigure(index=i,weight=1)
+#for i in range(rows):
+#    root.rowconfigure(index=i,weight=1)
 
-for i in range(columns):
-    root.columnconfigure(index=i, weight=1)
+#for i in range(columns):
+#    root.columnconfigure(index=i, weight=1)
+
+Grid.grid_configure(Grid, 9, weight = 1)
+Grid.grid_configure(Grid, 3, weight = 1)
 
 
 # Blank cell create
@@ -72,6 +75,9 @@ diabetes_button.grid(column = 4, row = 9, sticky = (E, W))
 kidney_button.grid(column = 5, row = 9, sticky = (E, W))
 
 for child in frame.winfo_children():			
-	child.grid_configure(padx = 3, pady = 3)		
+	child.grid_configure(padx = 3, pady = 3)
+
+#for c in sorted(root.children):
+#    root.children[c].pack()
 
 root.mainloop()
