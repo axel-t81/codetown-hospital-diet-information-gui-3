@@ -8,12 +8,14 @@
 
 
 
-
+# NOW have a draft of this cut & pasted into gui_template
 # Calculate Kjs for each diet, that will be displayed
-def calc_kjs()
-       
-kilojoules_unrounded = (4.18 * (4 * protein + 4 * carbs + 9.30 * fat))
-# Using the round() function to handle complex float; 
-# Setting precision to 4 to not lose data within calculations, even though the output is later formatted to 2 decinal places
-kilojoules = round(kilojoules_unrounded, 4)
-all_kjs.append(kilojoules)
+def calc_kjs(pr, ca, fa):
+    kilojoules_unrounded = (4.18 * (4 * pr + 4 * ca + 9.30 * fa))
+    # Using the round() function to handle complex float; 
+    # Setting precision to 4 to not lose data within calculations, even though the output is later formatted to 2 decinal places
+    kilojoules_var = round(kilojoules_unrounded, 2)
+    protein_var = pr
+    carbs_var = ca
+    fat_var = fa
+    return kilojoules_var, protein_var, carbs_var, fat_var

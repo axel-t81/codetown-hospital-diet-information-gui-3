@@ -6,6 +6,23 @@ from tkinter import ttk
 def nutrition():
      pass
 
+# Calculate Kjs for each diet, that will be displayed
+def calc_kjs(pr, ca, fa):
+    kilojoules_unrounded = (4.18 * (4 * pr + 4 * ca + 9.30 * fa))
+    # Using the round() function to handle complex float; 
+    # Setting precision to 4 to not lose data within calculations, even though the output is later formatted to 2 decinal places
+    kilojoules_var = round(kilojoules_unrounded, 2)
+    return kilojoules_var
+
+
+normal_diet = {
+    "protein": 32.5,
+    "carbohydrates": 60.0,
+    "fat": 40.86
+}
+
+
+
 root = Tk()
 
 root.title("Codetown Hospital: Diet Information")
@@ -38,6 +55,7 @@ protein_label.grid(column = 2, row = 3, sticky = (N, S, E, W))
 carbohydrates_label.grid(column = 2, row = 4, sticky = (N, S, E, W))
 fat_label.grid(column = 2, row = 5, sticky = (N, S, E, W))
 kilojoules_label.grid(column = 2, row = 6, sticky = (N, S, E, W))
+
 select_diet_label.grid(column = 2, row = 8, columnspan = 3, sticky = ((N, S, E, W)))
 
 
@@ -53,6 +71,31 @@ oncology_button.grid(column = 2, row = 9, sticky = (N, S, E, W))
 cardiology_button.grid(column = 3, row = 9, sticky = (N, S, E, W))
 diabetes_button.grid(column = 4, row = 9, sticky = (N, S, E, W))
 kidney_button.grid(column = 5, row = 9, sticky = (N, S, E, W))
+
+# Create the DoubleVars
+protein = DoubleVar(frame)
+carbohydrates = DoubleVar(frame)
+fat = DoubleVar(frame)
+kilojoules = DoubleVar(frame)
+# Set the DoubleVars
+kilojoules.set(f'{calc_kjs(normal_diet["protein"], normal_diet["carbohydrates"], normal_diet["fat"]):.2f}')
+protein.set(f'{normal_diet["protein"]:.2f}')
+carbohydrates.set(f'{normal_diet["carbohydrates"]:.2f}')
+fat.set(f'{normal_diet["fat"]:.2f}')
+# Create the labels for the DoubleVars
+selected_diet_label_var = ttk.Label(frame, anchor = "e")
+protein_label_var = ttk.Label(frame, width = 12, textvariable = protein, anchor = "e")
+carbohydrates_label_var = ttk.Label(frame, width = 12, textvariable = carbohydrates, anchor = "e")
+fat_label_var = ttk.Label(frame, width = 12, textvariable = fat, anchor = "e")
+kilojoules_label_var = ttk.Label(frame, width = 12, textvariable = kilojoules, anchor = "e")
+# Display the label for the DoubleVars
+selected_diet_label_var.grid(column = 4, row = 2, sticky = (N, S, E, W))
+protein_label_var.grid(column = 4, row = 3, sticky = (N, S, E, W))
+carbohydrates_label_var.grid(column = 4, row = 4, sticky = (N, S, E, W))
+fat_label_var.grid(column = 4, row = 5, sticky = (N, S, E, W))
+kilojoules_label_var.grid(column = 4, row = 6, sticky = (N, S, E, W))
+
+
 
 for child in frame.winfo_children():			
 	child.grid_configure(padx = 3, pady = 3)
