@@ -25,13 +25,13 @@ for i in range(1, 6):
        
 
 # Create the labels
-selected_diet_label = ttk.Label(frame, text = "Selected Diet:")
-protein_label = ttk.Label(frame, text = "Protein (g):")
-carbohydrates_label = ttk.Label(frame, text = "Cabohydrates (g):")
-fat_label = ttk.Label(frame, text = "Fat (g):")
-kilojoules_label = ttk.Label(frame, text = "Kilojoules (kJs):")
+selected_diet_label = ttk.Label(frame, text = "Selected Diet:", anchor = "e")
+protein_label = ttk.Label(frame, text = "Protein (g):", anchor = "e")
+carbohydrates_label = ttk.Label(frame, text = "Cabohydrates (g):", anchor = "e")
+fat_label = ttk.Label(frame, text = "Fat (g):", anchor = "e")
+kilojoules_label = ttk.Label(frame, text = "Kilojoules (kJs):", anchor = "e")
 
-select_diet_label = ttk.Label(frame, text = "Select Below the Diet Option to Display:")
+select_diet_label = ttk.Label(frame, text = "Select Below the Diet Option to Display:", anchor = "center")
 # Display the label
 selected_diet_label.grid(column = 2, row = 2, sticky = (N, S, E, W))
 protein_label.grid(column = 2, row = 3, sticky = (N, S, E, W))
