@@ -3,6 +3,20 @@
 from tkinter import *
 from tkinter import ttk
 
+select = {}
+
+normal_diet = {
+    "protein": 32.5,
+    "carbohydrates": 60.0,
+    "fat": 40.86
+}
+
+oncology_diet = {
+    "protein": 35.0,
+    "carbohydrates": 52.5,
+    "fat": 37.63
+}
+
 def nutrition():
      pass
 
@@ -14,12 +28,12 @@ def calc_kjs(pr, ca, fa):
     kilojoules_var = round(kilojoules_unrounded, 2)
     return kilojoules_var
 
+def selected(diet_choice):
+    select = diet_choice
+    print(select)
+    return select
 
-normal_diet = {
-    "protein": 32.5,
-    "carbohydrates": 60.0,
-    "fat": 40.86
-}
+     
 
 
 
@@ -60,8 +74,8 @@ select_diet_label.grid(column = 2, row = 8, columnspan = 3, sticky = ((N, S, E, 
 
 
 # Create Buttons
-normal_button = ttk.Button(frame, width = 8, text = "Normal", command = nutrition)
-oncology_button = ttk.Button(frame, width = 8, text = "Oncology", command = nutrition)	
+normal_button = ttk.Button(frame, width = 8, text = "Normal", command = selected(normal_diet))
+oncology_button = ttk.Button(frame, width = 8, text = "Oncology", command = selected(oncology_diet))	
 cardiology_button = ttk.Button(frame, width = 8, text = "Cardiology", command = nutrition)	
 diabetes_button = ttk.Button(frame, width = 8, text = "Diabetes", command = nutrition)	
 kidney_button = ttk.Button(frame, width = 8, text = "Kidney", command = nutrition)		
@@ -77,6 +91,7 @@ protein = DoubleVar(frame)
 carbohydrates = DoubleVar(frame)
 fat = DoubleVar(frame)
 kilojoules = DoubleVar(frame)
+
 # Set the DoubleVars
 kilojoules.set(f'{calc_kjs(normal_diet["protein"], normal_diet["carbohydrates"], normal_diet["fat"]):.2f}')
 protein.set(f'{normal_diet["protein"]:.2f}')
@@ -94,7 +109,6 @@ protein_label_var.grid(column = 4, row = 3, sticky = (N, S, E, W))
 carbohydrates_label_var.grid(column = 4, row = 4, sticky = (N, S, E, W))
 fat_label_var.grid(column = 4, row = 5, sticky = (N, S, E, W))
 kilojoules_label_var.grid(column = 4, row = 6, sticky = (N, S, E, W))
-
 
 
 for child in frame.winfo_children():			
