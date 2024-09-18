@@ -3,7 +3,7 @@
 from tkinter import *
 from tkinter import ttk
 
-select = {}
+select = ""
 
 normal_diet = {
     "protein": 32.5,
@@ -29,11 +29,54 @@ def calc_kjs(pr, ca, fa):
     return kilojoules_var
 
 def selected(diet_choice):
-    select = diet_choice
-    print(select)
-    return select
+    if diet_choice == normal_diet:
+        pass
 
-     
+def click_normal(*args):
+    print("Hello there!")
+    # Set the DoubleVars
+    kilojoules.set(f'{calc_kjs(normal_diet["protein"], normal_diet["carbohydrates"], normal_diet["fat"]):.2f}')
+    protein.set(f'{normal_diet["protein"]:.2f}')
+    carbohydrates.set(f'{normal_diet["carbohydrates"]:.2f}')
+    fat.set(f'{normal_diet["fat"]:.2f}')
+    # Create the labels for the DoubleVars and one StringVar
+    selected_diet_label_var = ttk.Label(frame, text = "Normal", anchor = "e")
+    protein_label_var = ttk.Label(frame, width = 12, textvariable = protein, anchor = "e")
+    carbohydrates_label_var = ttk.Label(frame, width = 12, textvariable = carbohydrates, anchor = "e")
+    fat_label_var = ttk.Label(frame, width = 12, textvariable = fat, anchor = "e")
+    kilojoules_label_var = ttk.Label(frame, width = 12, textvariable = kilojoules, anchor = "e")
+    # Display the label for the DoubleVars and one StringVar
+    selected_diet_label_var.grid(column = 4, row = 5, sticky = (N, S, E, W))
+    protein_label_var.grid(column = 4, row = 6, sticky = (N, S, E, W))
+    carbohydrates_label_var.grid(column = 4, row = 7, sticky = (N, S, E, W))
+    fat_label_var.grid(column = 4, row = 8, sticky = (N, S, E, W))
+    kilojoules_label_var.grid(column = 4, row = 9, sticky = (N, S, E, W))
+    # Test
+    print("Hello again!")
+
+
+def click_oncology(*args):
+    print("Hello there!")
+    # Set the DoubleVars
+    kilojoules.set(f'{calc_kjs(oncology_diet["protein"], oncology_diet["carbohydrates"], oncology_diet["fat"]):.2f}')
+    protein.set(f'{oncology_diet["protein"]:.2f}')
+    carbohydrates.set(f'{oncology_diet["carbohydrates"]:.2f}')
+    fat.set(f'{oncology_diet["fat"]:.2f}')
+    # Create the labels for the DoubleVars
+    selected_diet_label_var = ttk.Label(frame, text = "Oncology", anchor = "e")
+    protein_label_var = ttk.Label(frame, width = 12, textvariable = protein, anchor = "e")
+    carbohydrates_label_var = ttk.Label(frame, width = 12, textvariable = carbohydrates, anchor = "e")
+    fat_label_var = ttk.Label(frame, width = 12, textvariable = fat, anchor = "e")
+    kilojoules_label_var = ttk.Label(frame, width = 12, textvariable = kilojoules, anchor = "e")
+    # Display the label for the DoubleVars
+    selected_diet_label_var.grid(column = 4, row = 5, sticky = (N, S, E, W))
+    protein_label_var.grid(column = 4, row = 6, sticky = (N, S, E, W))
+    carbohydrates_label_var.grid(column = 4, row = 7, sticky = (N, S, E, W))
+    fat_label_var.grid(column = 4, row = 8, sticky = (N, S, E, W))
+    kilojoules_label_var.grid(column = 4, row = 9, sticky = (N, S, E, W))
+    # Test
+    print("Hello again!")
+
 
 
 
@@ -64,27 +107,27 @@ kilojoules_label = ttk.Label(frame, text = "Kilojoules (kJs):", anchor = "e")
 
 select_diet_label = ttk.Label(frame, text = "Select Below the Diet Option to Display:", anchor = "center")
 # Display the label
-selected_diet_label.grid(column = 2, row = 2, sticky = (N, S, E, W))
-protein_label.grid(column = 2, row = 3, sticky = (N, S, E, W))
-carbohydrates_label.grid(column = 2, row = 4, sticky = (N, S, E, W))
-fat_label.grid(column = 2, row = 5, sticky = (N, S, E, W))
-kilojoules_label.grid(column = 2, row = 6, sticky = (N, S, E, W))
+selected_diet_label.grid(column = 2, row = 5, sticky = (N, S, E, W))
+protein_label.grid(column = 2, row = 6, sticky = (N, S, E, W))
+carbohydrates_label.grid(column = 2, row = 7, sticky = (N, S, E, W))
+fat_label.grid(column = 2, row = 8, sticky = (N, S, E, W))
+kilojoules_label.grid(column = 2, row = 9, sticky = (N, S, E, W))
 
-select_diet_label.grid(column = 2, row = 8, columnspan = 3, sticky = ((N, S, E, W)))
+select_diet_label.grid(column = 2, row = 2, columnspan = 3, sticky = ((N, S, E, W)))
 
 
 # Create Buttons
-normal_button = ttk.Button(frame, width = 8, text = "Normal", command = selected(normal_diet))
-oncology_button = ttk.Button(frame, width = 8, text = "Oncology", command = selected(oncology_diet))	
+normal_button = ttk.Button(frame, width = 8, text = "Normal", command = click_normal)
+oncology_button = ttk.Button(frame, width = 8, text = "Oncology", command = click_oncology)
 cardiology_button = ttk.Button(frame, width = 8, text = "Cardiology", command = nutrition)	
 diabetes_button = ttk.Button(frame, width = 8, text = "Diabetes", command = nutrition)	
 kidney_button = ttk.Button(frame, width = 8, text = "Kidney", command = nutrition)		
 # Display Buttons
-normal_button.grid(column = 1, row = 9, sticky = (N, S, E, W))
-oncology_button.grid(column = 2, row = 9, sticky = (N, S, E, W))
-cardiology_button.grid(column = 3, row = 9, sticky = (N, S, E, W))
-diabetes_button.grid(column = 4, row = 9, sticky = (N, S, E, W))
-kidney_button.grid(column = 5, row = 9, sticky = (N, S, E, W))
+normal_button.grid(column = 1, row = 3, sticky = (N, S, E, W))
+oncology_button.grid(column = 2, row = 3, sticky = (N, S, E, W))
+cardiology_button.grid(column = 3, row = 3, sticky = (N, S, E, W))
+diabetes_button.grid(column = 4, row = 3, sticky = (N, S, E, W))
+kidney_button.grid(column = 5, row = 3, sticky = (N, S, E, W))
 
 # Create the DoubleVars
 protein = DoubleVar(frame)
@@ -93,22 +136,22 @@ fat = DoubleVar(frame)
 kilojoules = DoubleVar(frame)
 
 # Set the DoubleVars
-kilojoules.set(f'{calc_kjs(normal_diet["protein"], normal_diet["carbohydrates"], normal_diet["fat"]):.2f}')
-protein.set(f'{normal_diet["protein"]:.2f}')
-carbohydrates.set(f'{normal_diet["carbohydrates"]:.2f}')
-fat.set(f'{normal_diet["fat"]:.2f}')
+#kilojoules.set(f'{calc_kjs(normal_diet["protein"], normal_diet["carbohydrates"], normal_diet["fat"]):.2f}')
+#protein.set(f'{normal_diet["protein"]:.2f}')
+#carbohydrates.set(f'{normal_diet["carbohydrates"]:.2f}')
+#fat.set(f'{normal_diet["fat"]:.2f}')
 # Create the labels for the DoubleVars
-selected_diet_label_var = ttk.Label(frame, anchor = "e")
-protein_label_var = ttk.Label(frame, width = 12, textvariable = protein, anchor = "e")
-carbohydrates_label_var = ttk.Label(frame, width = 12, textvariable = carbohydrates, anchor = "e")
-fat_label_var = ttk.Label(frame, width = 12, textvariable = fat, anchor = "e")
-kilojoules_label_var = ttk.Label(frame, width = 12, textvariable = kilojoules, anchor = "e")
+#selected_diet_label_var = ttk.Label(frame, anchor = "e")
+#protein_label_var = ttk.Label(frame, width = 12, textvariable = select, anchor = "e")
+#carbohydrates_label_var = ttk.Label(frame, width = 12, textvariable = carbohydrates, anchor = "e")
+#fat_label_var = ttk.Label(frame, width = 12, textvariable = fat, anchor = "e")
+#kilojoules_label_var = ttk.Label(frame, width = 12, textvariable = kilojoules, anchor = "e")
 # Display the label for the DoubleVars
-selected_diet_label_var.grid(column = 4, row = 2, sticky = (N, S, E, W))
-protein_label_var.grid(column = 4, row = 3, sticky = (N, S, E, W))
-carbohydrates_label_var.grid(column = 4, row = 4, sticky = (N, S, E, W))
-fat_label_var.grid(column = 4, row = 5, sticky = (N, S, E, W))
-kilojoules_label_var.grid(column = 4, row = 6, sticky = (N, S, E, W))
+#selected_diet_label_var.grid(column = 4, row = 2, sticky = (N, S, E, W))
+#protein_label_var.grid(column = 4, row = 3, sticky = (N, S, E, W))
+#carbohydrates_label_var.grid(column = 4, row = 4, sticky = (N, S, E, W))
+#fat_label_var.grid(column = 4, row = 5, sticky = (N, S, E, W))
+#kilojoules_label_var.grid(column = 4, row = 6, sticky = (N, S, E, W))
 
 
 for child in frame.winfo_children():			
