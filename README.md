@@ -1,15 +1,19 @@
-# Assessment: Programming Task 3
+# Codetown Hospital Diet Information (GUI)
 
-## Submitted By: Axel Tracy
+## Programming Task 3 of UNE's COSC110 Introduction to Programming and the UNIX Environment
 
-## Student Number: 220155464
+### Program Guide
 
-## Due Date: Sunday, 22 September 2024, 11:59 PM
+This is a basic GUI using Python's Tkinter. It was the 3rd individual programming task for COSC110 at the University of New England (UNE).
 
-## Unit: COSC110 Introduction to Programming and the UNIX Environment
-
-## Unit Coordinator: Dr Vera Miloslavskaya
-
+While the exact requirements of the program remain the IP of UNE, the aim of the program is as following:
+* See the nutrional information of each of the standardised diets available in the hospital.
+* Selecting and viewing this information is done within a resizeable GUI.
+* Hospital staff members can run the program and then use the GUI and it's buttons to select the different standardised diets.
+* After a diet's button is clicked, the nutrional macros for that diet are diplayed, and the kilojoules (kJs) for that diet are calculated within the program and also diplayed.
+* While this 3rd Codetown Hospital program is far simpler than the first two, ideally the GUI would make it more user-friendly for the hospital's staff to use.
+---
+   
 ### Instructions to use the program:
 
 1. Open shell (e.g. bash, zshell, etc)
